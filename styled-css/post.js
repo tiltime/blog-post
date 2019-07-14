@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const Post = styled.div`
   border: 1px solid #dddddd;
   box-shadow: 2px 2px 5px #ececec;
-  padding: 10px;
+  padding: 16px;
   margin-bottom: 16px;
   background-color: #f0f0f0;
   display: flex;
@@ -20,18 +20,20 @@ export const Post = styled.div`
 export const PostDetail = styled.div`
   border-right: 1px solid #dddddd;
   width: 85%;
+  padding-right: 16px;
 `
 export const PostImage = styled.img`
   display: block;
   width: auto;
   height: 140px;
-  margin-right: 10px;
+  margin-right: 16px;
   float: left;
 `
 export const PostHeader = styled.h3`
   font-weight: normal;
   color: #000;
   line-height: 1em;
+  margin-top: 2px;
 `
 export const PostBody = styled.p`
   opacity: 0.7;
