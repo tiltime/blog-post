@@ -1,7 +1,11 @@
 import axios from 'axios'
 import styled from 'styled-components'
 import _ from 'lodash'
-import Pagination from 'react-paginate';
+import Link from 'next/link'
+import moment from 'moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import Pagination from 'react-paginate'
 //import css
 import '../css/reset.css'
 import '../css/styles.css'
@@ -36,7 +40,7 @@ const PostImage = styled.img`
 `
 
 const PostHeader = styled.h3`
-  font: bold 1.2em;
+  font-weight: normal;
   color: #000;
 `
 const PostDetail = styled.div`
@@ -46,6 +50,10 @@ const PostDetail = styled.div`
 const PostBody = styled.p`
   opacity: 0.8;
   font-size: 0.85em;
+`
+const PostDate = styled.span`
+  opacity: 0.6;
+  font-size: 0.75em;
 `
 const Author = styled.div`
   text-align: center;
@@ -63,7 +71,7 @@ const AuthorName = styled.span`
   margin-bottom: 10px;
 `
 const AuthorPlace = styled.span`
-  font-size: 0.85em;
+  font-size: 0.8em;
   display: block;
 `
 const AuthorRole = styled.span`
@@ -76,14 +84,15 @@ const PostItem = ({ post }) => (
     <Post>
       <PostDetail>
         <PostImage src={post.image_url}></PostImage>
-        <PostHeader>{post.title}</PostHeader>
+        <PostHeader><Link to="/post/:id"><a>{post.title}</a></Link></PostHeader>
         <PostBody>{post.body}</PostBody>
+        <PostDate><FontAwesomeIcon icon={faClock} size="xs"></FontAwesomeIcon>{moment(post.created_at).fromNow()}</PostDate>
       </PostDetail>
       <Author>
         <AvatarImg src={post.avatar_url}/>
         <AuthorName>{post.name}</AuthorName>
         <AuthorRole>{post.role}</AuthorRole>
-        <AuthorPlace><i class=""></i>{post.place}</AuthorPlace>
+        <AuthorPlace><FontAwesomeIcon icon={faMapMarkerAlt} size="xs" />{post.place}</AuthorPlace>
       </Author>
     </Post>
 );

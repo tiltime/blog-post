@@ -4,18 +4,25 @@ body {
 }
 h1,h2,h3,h4,h5,h6,p {
     margin-bottom: 10px;
+    line-height: 1.4em;
 }
 h1 {
     font-size: 1.5em;
 }
 h2 {
-    font-size: 1.2em;
+    font-size: 1.3em;
+}
+h3 {
+    font-size: 1em;
 }
 img {
     max-width: 100%;
 }
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+span svg {
+    margin-right: 4px;
+    position: relative;
+    top: -1px;
+}
+a:hover{
+    text-decoration: underline;
+}
