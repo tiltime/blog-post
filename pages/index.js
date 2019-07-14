@@ -1,10 +1,10 @@
-import axios from 'axios'
 import _ from 'lodash'
 import Link from 'next/link'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import Pagination from 'react-paginate'
+import api from '../api'
 import {
     Author, AuthorName, AuthorRole, AuthorPlace, AvatarImg, 
     Wrapper, Post, PostBody, PostDetail, PostDate, PostHeader, PostImage
@@ -12,10 +12,6 @@ import {
 //import css
 import '../css/reset.css'
 import '../css/styles.css'
-
-const api = axios.create({
-  baseURL: 'http://maqe.github.io/json'
-})
 
 const PostItem = ({ post }) => (
     <Post>
