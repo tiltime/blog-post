@@ -8,6 +8,7 @@ h1,h2,h3,h4,h5,h6,p {
 }
 h1 {
     font-size: 1.5em;
+    font-family: sans-serif;
 }
 h2 {
     font-size: 1.3em;
@@ -25,4 +26,27 @@ span svg {
 }
 a:hover{
     text-decoration: underline;
+}
+.pagination {
+    padding-top: 30px;
+    display: block;
+    font-size: 0.85em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.pagination li {
+    display: inline-block;
+    padding: 6px 9px;
+    text-transform: capitalize;
+}
+.pagination li.previous {
+    margin-right: 10px;
+}
+.pagination li.next {
+    margin-left: 10px;
+}
+.pagination li.active {
+    background-color: #c83430;
+    border-radius: 40px;
+    color: #ffffff;
 }
