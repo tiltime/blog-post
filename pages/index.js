@@ -1,35 +1,14 @@
 import _ from 'lodash'
-import Link from 'next/link'
 import Head from 'next/head'
-import moment from 'moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import Pagination from 'react-paginate'
 import api from '../api'
-import {
-    Author, AuthorName, AuthorRole, AuthorPlace, AvatarImg, 
-    Wrapper, Post, PostBody, PostDetail, PostDate, PostHeader, PostImage
-  } from '../styled-css/post'
+import PostItem from '../components/post'
+import { Wrapper } from '../styled-css/post'
 //import css
 import '../css/reset.css'
 import '../css/styles.css'
 
-const PostItem = ({ post }) => (
-    <Post>
-      <PostDetail>
-        <PostImage src={post.image_url}></PostImage>
-        <PostHeader><Link to="/post/:id"><a>{post.title}</a></Link></PostHeader>
-        <PostBody>{post.body}</PostBody>
-        <PostDate><FontAwesomeIcon icon={faClock} size="xs"></FontAwesomeIcon>{moment(post.created_at).fromNow()}</PostDate>
-      </PostDetail>
-      <Author>
-        <AvatarImg src={post.avatar_url}/>
-        <AuthorName>{post.name}</AuthorName>
-        <AuthorRole>{post.role}</AuthorRole>
-        <AuthorPlace><FontAwesomeIcon icon={faMapMarkerAlt} size="xs" />{post.place}</AuthorPlace>
-      </Author>
-    </Post>
-);
+
 
 const Index = props => {
   return (
