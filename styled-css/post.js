@@ -62,7 +62,6 @@ export const AuthorRole = styled.span`
   font-size: 0.75em;
   display: block;
   margin-bottom: 10px;
-  opacity: 0.7;
 `
 export const AuthorPlace = styled.span`
   font-size: 0.7em;
