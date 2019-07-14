@@ -1,11 +1,14 @@
 import axios from 'axios'
-import styled from 'styled-components'
 import _ from 'lodash'
 import Link from 'next/link'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import Pagination from 'react-paginate'
+import {
+    Author, AuthorName, AuthorRole, AuthorPlace, AvatarImg, 
+    Wrapper, Post, PostBody, PostDetail, PostDate, PostHeader, PostImage
+  } from '../styled-css/post'
 //import css
 import '../css/reset.css'
 import '../css/styles.css'
@@ -13,72 +16,6 @@ import '../css/styles.css'
 const api = axios.create({
   baseURL: 'http://maqe.github.io/json'
 })
-
-const Wrapper = styled.div`
-  margin: 0 auto;
-  width: 1200px;
-  padding: 10px;
-`
-const Post = styled.div`
-  border: 1px solid #dddddd;
-  box-shadow: 2px 2px 5px #ececec;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #f0f0f0;
-  display: flex;
-  position: relative;
-  &:nth-child(2n+1) {
-    background: #ffffff;
-  }
-`
-const PostImage = styled.img`
-  display: block;
-  width: auto;
-  height: 140px;
-  margin-right: 10px;
-  float: left;
-`
-
-const PostHeader = styled.h3`
-  font-weight: normal;
-  color: #000;
-`
-const PostDetail = styled.div`
-  border-right: 1px solid #dddddd;
-  width: 85%;
-`
-const PostBody = styled.p`
-  opacity: 0.8;
-  font-size: 0.85em;
-`
-const PostDate = styled.span`
-  opacity: 0.6;
-  font-size: 0.75em;
-`
-const Author = styled.div`
-  text-align: center;
-  width: 15%;
-`
-const AvatarImg = styled.img`
-  width: 80px;
-  border-radius: 60px;
-  margin-bottom: 10px;
-`
-const AuthorName = styled.span`
-  color: #c83430;
-  font-size: 0.85em;
-  display: block;
-  margin-bottom: 10px;
-`
-const AuthorPlace = styled.span`
-  font-size: 0.8em;
-  display: block;
-`
-const AuthorRole = styled.span`
-  font-size: 0.75em;
-  display: block;
-  margin-bottom: 10px;
-`
 
 const PostItem = ({ post }) => (
     <Post>
@@ -98,8 +35,6 @@ const PostItem = ({ post }) => (
 );
 
 const Index = props => {
-  console.log(props.posts)
-  
   return (
     <Wrapper>
       <h1>MAQA Forums</h1>
@@ -109,7 +44,16 @@ const Index = props => {
         {props.posts.map(post => (
           <PostItem key={post.id} post={post}></PostItem>
         ))}
-        <Pagination></Pagination>
+        <Pagination
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+/>
       </div>
     </Wrapper>
   )
