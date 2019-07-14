@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import Link from 'next/link'
+import Head from 'next/head'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
@@ -32,26 +33,32 @@ const PostItem = ({ post }) => (
 
 const Index = props => {
   return (
-    <Wrapper>
-      <h1>MAQA Forums</h1>
-      <h2>Subtitle</h2>
-      <h3>Posts</h3>
-      <div>
-        {props.posts.map(post => (
-          <PostItem key={post.id} post={post}></PostItem>
-        ))}
-        <Pagination
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          containerClassName={'pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
-/>
-      </div>
-    </Wrapper>
+    <div>
+      <Head>
+          <title>Blog Posts</title>
+          <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link>
+      </Head>
+      <Wrapper>
+        <h1>MAQA Forums</h1>
+        <h2>Subtitle</h2>
+        <h3>Posts</h3>
+        <div>
+          {props.posts.map(post => (
+            <PostItem key={post.id} post={post}></PostItem>
+          ))}
+          <Pagination
+            previousLabel={'previous'}
+            nextLabel={'next'}
+            breakLabel={'...'}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+          />
+        </div>
+      </Wrapper>
+    </div>
   )
 }
 

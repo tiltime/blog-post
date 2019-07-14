@@ -1,6 +1,7 @@
 body {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    color: #333333;
 }
 h1,h2,h3,h4,h5,h6,p {
     margin-bottom: 10px;
@@ -8,7 +9,7 @@ h1,h2,h3,h4,h5,h6,p {
 }
 h1 {
     font-size: 1.5em;
-    font-family: sans-serif;
+    font-weight: 700;
 }
 h2 {
     font-size: 1.3em;
